@@ -1,0 +1,16 @@
+baseUrl: https://koselig.co
+
+exclude:
+    - website
+
+menu:
+    items:
+        introduction:
+            section: Introduction
+            items:
+                getting-started:
+                    text: Getting started
+                    url: getting-started.html
+                routing:
+                    text: Routing
+                    url: routing.html

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="IE=edge">
+
+        <title>{{ title }}</title>
+
+        <link rel="stylesheet" href="{{ baseUrl }}/public/css/app.css">
+    </head>
+
+    <body>
+        <header class="navbar navbar-fixed-top">
+            <div class="container">
+                <nav>
+                    <div>
+                        <button class="navbar-toggler pull-xs-right hidden-sm-up" type="button" data-toggle="collapse"
+                                data-target="#bd-main-nav" aria-controls="bd-main-nav" aria-expanded="false"
+                                aria-label="Toggle navigation">
+                            ☰
+                        </button>
+
+                        <a class="navbar-brand" href="/">
+                            {{ title|default('Koselig') }}
+                        </a>
+                    </div>
+
+                    <div class="collapse navbar-toggleable-xs pull-sm-right" id="bd-main-nav">
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item"><a href="{{ baseUrl }}/getting-started.html">Getting started</a></li>
+                            <li class="nav-item active"><a href="{{ baseUrl }}/">Documentation</a></li>
+                            <li class="nav-item">
+                                <a class="github" href="https://github.com/koselig/koselig">
+                                    <i class="fa fa-github"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <main class="{{ menu ? 'container-fluid' : 'container' }}">
+            {% block content %}
+                <article class="container">
+                    {{ content|raw }}
+                </article>
+            {% endblock %}
+        </main>
+
+        <script src="{{ baseUrl }}/public/js/app.js"></script>
+    </body>
+</html>
