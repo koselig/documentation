@@ -15,7 +15,7 @@ First things first, it is recommended that you get yourself familiar with [Larav
 
 The recommended (and only supported) way of installing Koselig is by cloning the main repository:
 
-```sh
+```bash
 git clone https://github.com/koselig/koselig
 ```
 
@@ -25,7 +25,7 @@ Generate your application keys [here](https://api.wordpress.org/secret-key/1.1/s
 
 Now you're ready to install your dependencies! Use composer to do this:
 
-```sh
+```bash
 composer install
 ```
 

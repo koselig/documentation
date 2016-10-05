@@ -9,11 +9,11 @@
         <meta name="description"
               content="Koselig is a Laravel library providing a fluent Wordpress integration whilst following Laravel's beautiful syntax.">
 
-
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.min.css">
         <link rel="stylesheet" href="{{ baseUrl }}/public/css/app.css">
     </head>
 
-    <body>
+    <body class="{% block bodyClass %}{% endblock %}">
         <header class="navbar navbar-fixed-top">
             <div class="container">
                 <nav>
@@ -43,7 +43,7 @@
             </div>
         </header>
 
-        <main class="{{ menu ? 'container-fluid' : 'container' }}">
+        <main class="{{ menu ? '' : 'container' }}">
             {% block content %}
                 <article class="container">
                     {{ content|raw }}
@@ -52,5 +52,18 @@
         </main>
 
         <script src="{{ baseUrl }}/public/js/app.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/components/prism-bash.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/components/prism-php.min.js"></script>
+
+        <script>
+            $(function () {
+                // Add anchors to headers
+                $('article h2, article h3, article h4, article h5').each(function () {
+                    var url = document.URL.replace(/#.*$/, "") + '#' + $(this).attr('id');
+                    $(this).append(' <a class="anchor" href="' + url + '">#</a>');
+                });
+            });
+        </script>
     </body>
 </html>

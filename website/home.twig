@@ -1,0 +1,26 @@
+{% extends "default.twig" %}
+
+{% block bodyClass %}homepage{% endblock %}
+
+{% block content %}
+    <video id="player1" autoplay muted loop>
+        <source type="video/mp4" src="/doggo.mp4">
+    </video>
+
+    <div class="home">
+        <div class="site-wrapper">
+            <div class="site-wrapper-inner">
+                <div class="cover-container">
+                    <div class="inner cover">
+                        <h1 class="cover-heading">Koselig</h1>
+                        <p class="lead">Laravel with a hint of Wordpress and a side of beautiful syntax.</p>
+                        <p class="lead">
+                            <a href="/getting-started.html" class="btn btn-lg btn-outline-primary">Documentation</a>
+                            <a href="https://github.com/koselig/koselig" class="btn btn-lg btn-outline-primary">GitHub</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
