@@ -1,5 +1,7 @@
 baseUrl: https://koselig.co
 
+title: Koselig
+
 exclude:
     - website
 
