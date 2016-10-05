@@ -3,6 +3,10 @@ baseUrl: https://koselig.co
 exclude:
     - website
 
+scripts:
+    after:
+        - cd website && gulp
+
 menu:
     items:
         introduction:
