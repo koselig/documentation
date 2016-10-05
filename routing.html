@@ -5,12 +5,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="IE=edge">
 
-        <title>Koselig</title>
+        <title>Koselig - Wordpress backend for a Laravel frontend</title>
+        <meta name="description"
+              content="Koselig is a Laravel library providing a fluent Wordpress integration whilst following Laravel's beautiful syntax.">
 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.min.css">
         <link rel="stylesheet" href="https://koselig.co/public/css/app.css">
     </head>
 
-    <body>
+    <body class="">
         <header class="navbar navbar-fixed-top">
             <div class="container">
                 <nav>
@@ -29,7 +32,6 @@
                     <div class="collapse navbar-toggleable-xs pull-sm-right" id="bd-main-nav">
                         <ul class="nav navbar-nav">
                             <li class="nav-item"><a href="https://koselig.co/getting-started.html">Getting started</a></li>
-                            <li class="nav-item active"><a href="https://koselig.co/">Documentation</a></li>
                             <li class="nav-item">
                                 <a class="github" href="https://github.com/koselig/koselig">
                                     <i class="fa fa-github"></i>
@@ -41,7 +43,7 @@
             </div>
         </header>
 
-        <main class="container-fluid">
+        <main class="">
                 <div class="container documentation">
         <div class="sidebar">
             <ul>
@@ -117,5 +119,18 @@ Route::archive(function () {
         </main>
 
         <script src="https://koselig.co/public/js/app.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/components/prism-bash.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/components/prism-php.min.js"></script>
+
+        <script>
+            $(function () {
+                // Add anchors to headers
+                $('article h2, article h3, article h4, article h5').each(function () {
+                    var url = document.URL.replace(/#.*$/, "") + '#' + $(this).attr('id');
+                    $(this).append(' <a class="anchor" href="' + url + '">#</a>');
+                });
+            });
+        </script>
     </body>
 </html>
