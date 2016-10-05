@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="IE=edge">
+
+        <title></title>
+
+        <link rel="stylesheet" href="https://koselig.co/public/css/app.css">
+    </head>
+
+    <body>
+        <header class="navbar navbar-fixed-top">
+            <div class="container">
+                <nav>
+                    <div>
+                        <button class="navbar-toggler pull-xs-right hidden-sm-up" type="button" data-toggle="collapse"
+                                data-target="#bd-main-nav" aria-controls="bd-main-nav" aria-expanded="false"
+                                aria-label="Toggle navigation">
+                            ☰
+                        </button>
+
+                        <a class="navbar-brand" href="/">
+                            Koselig
+                        </a>
+                    </div>
+
+                    <div class="collapse navbar-toggleable-xs pull-sm-right" id="bd-main-nav">
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item"><a href="https://koselig.co/getting-started.html">Getting started</a></li>
+                            <li class="nav-item active"><a href="https://koselig.co/">Documentation</a></li>
+                            <li class="nav-item">
+                                <a class="github" href="https://github.com/koselig/koselig">
+                                    <i class="fa fa-github"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <main class="container-fluid">
+                <div class="container documentation">
+        <div class="sidebar">
+            <ul>
+                                    <li>
+                        <span class="section-title">Introduction</span>
+
+                        <ul>
+                                                            <li class="active">
+                                    <a href="https://koselig.co/getting-started.html">
+                                        Getting started
+                                    </a>
+                                </li>
+                                                            <li class="">
+                                    <a href="https://koselig.co/routing.html">
+                                        Routing
+                                    </a>
+                                </li>
+                                                    </ul>
+                    </li>
+                            </ul>
+        </div>
+
+        <article>
+            <div class="pull-xs-right hidden-sm-down edit-gh">
+                <a href="https://github.com/koselig/documentation/blob/master/getting-started.md" class="btn btn-secondary btn-sm">
+                    Edit this page on GitHub
+                </a>
+            </div>
+
+            <h1 id="getting-started">Getting Started</h1>
+<p>Welcome! This guide will help you get started with a working install of Koselig.</p>
+<p>First things first, it is recommended that you get yourself familiar with <a href="https://laravel.com/docs/5.3/installation">Laravel</a>. Koselig is built on top of Laravel to provide a Wordpress administration panel on the backend, Laravel knowledge is assumed throughout the documentation.</p>
+<h2 id="installing-koselig">Installing Koselig</h2>
+<p>The recommended (and only supported) way of installing Koselig is by cloning the main repository:</p>
+<pre><code class="language-sh">git clone https://github.com/koselig/koselig</code></pre>
+<p>This will pull down a skeleton install of Koselig, you will then need to configure your environment variables. First copy <code>.env.example</code> to <code>.env</code> and fill out your database details, then fill in your <a href="https://www.advancedcustomfields.com/">Advanced Custom Fields</a> Pro key, if you don't have an ACF key, you will have to remove the <code>advanced-custom-fields/advanced-custom-fields-pro</code> dependency from your <code>composer.json</code> file.</p>
+<p>Generate your application keys <a href="https://api.wordpress.org/secret-key/1.1/salt/">here</a> and paste them in your environment file. Then generate an application key using <code>php artisan key:generate</code>.</p>
+<p>Now you're ready to install your dependencies! Use composer to do this:</p>
+<pre><code class="language-sh">composer install</code></pre>
+<p>Now visit your site, you will automatically be prompted to install the Wordpress database.</p>
+<p>Congratulations, you're ready to use Koselig now!</p>
+<div class="alert alert-info" role="alert"><strong>Heads up!</strong> Koselig rids Wordpress of frontend responsibilites altogether, this means theme support in Wordpress is dropped completely. Don't worry though, any functions you can run in vanilla Wordpress you can run in Koselig!</div>
+        </article>
+    </div>
+        </main>
+
+        <script src="https://koselig.co/public/js/app.js"></script>
+    </body>
+</html>
