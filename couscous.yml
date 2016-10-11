@@ -17,6 +17,15 @@ menu:
                 getting-started:
                     text: Getting started
                     url: getting-started.html
+        components:
+            section: Components
+            items:
                 routing:
                     text: Routing
                     url: routing.html
+                auth-guard:
+                    text: Authentication guard
+                    url: auth-guard.html
+                filters:
+                    text: Filters
+                    url: filters.html
