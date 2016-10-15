@@ -4927,7 +4927,7 @@ pre[class*="language-"] {
   .homepage video {
     height: calc(100% - 50px);
     width: 100%;
-    position: absolute;
+    position: fixed;
     z-index: -1;
     -o-object-fit: fill;
     object-fit: fill;

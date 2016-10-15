@@ -91,7 +91,7 @@
 
             <h1 id="routing">Routing</h1>
 <p>Beautiful routing is one of the core points of Koselig. Koselig tries to stick to Laravel's routing patterns to give the most native feel as possible. Like Laravel, routes accept either a closure or a controller action.</p>
-<h2 id="template-routing">Template Routing</h2>
+<h3 id="template-routing">Template Routing</h3>
 <p>Template routing is one of the main types of routing you'll most likely be using. </p>
 <div class="alert alert-info" role="alert"><strong>Heads up!</strong> You can declare your own templates in <code>config/template.php</code>, the slug (key) set in this file will be the one used in the routing method.</div>
 <p>This method accepts a template slug name and an action.</p>
@@ -99,13 +99,13 @@
     return 'Hello from the home template!';
 });</code></pre>
 <p>When a user visits a page with the template with the slug <code>home</code> they will see a string on their screen saying &quot;Hello from the home template!&quot;</p>
-<h2 id="singular-routing">Singular Routing</h2>
-<p>This route is used when a singular post is being displayed. You may pass an array of post types or a single post type as a string to this method.</p>
+<h3 id="singular-routing">Singular Routing</h3>
+<p>This route is used when a singular post is being displayed. You may pass an array of post types or a single post type as a string to this method. You can optionally have the current post's model injected into the parameters. Any subclass of <code>Post</code> also works.</p>
 <div class="alert alert-info" role="alert"><strong>Heads up!</strong> You can declare your own templates in <code>config/posttypes.php</code>, the slug (key) set in this file will be the one used in the routing method.</div>
-<pre><code class="language-php">Route::singular('post', function () {
-    return 'Hello from my post!';
+<pre><code class="language-php">Route::singular('post', function (Post $post) {
+    dd($post);
 });</code></pre>
-<h2 id="archive-routing">Archive Routing</h2>
+<h3 id="archive-routing">Archive Routing</h3>
 <p>This route is used when an archive page is being displayed. You may pass an array of post types, a single post type, or no post type at all to this method. If you pass no post type, that route will become the default archive page if no route is declared for that particular archive page.</p>
 <pre><code class="language-php">Route::archive('suppliers', function () {
     return 'Welcome to the Suppliers archive!';
@@ -114,13 +114,13 @@
 Route::archive(function () {
     return 'Welcome to the default archive page!';
 });</code></pre>
-<h2 id="page-routing">Page Routing</h2>
+<h3 id="page-routing">Page Routing</h3>
 <p>Page routing is slightly different to the previous routing methods in that instead of taking a slug, it takes a page ID. This is down to the fact that the slug of pages are editable in the Wordpress administration panel, this that means that if a user (aka rogue SEO team) decides to change a slug you'll still be serving the page with the correct action.</p>
 <div class="alert alert-info" role="alert"><strong>Heads up!</strong> Despite the name, page routing can be used to serve any post type, this includes normal posts.</div>
 <pre><code class="language-php">Route::page(3, function () {
     echo 'Hello from my page with id 3!';
 });</code></pre>
-<h2 id="other-routing-methods">Other Routing Methods</h2>
+<h3 id="other-routing-methods">Other Routing Methods</h3>
 <p>Routing methods other than <code>GET</code> are available for Wordpress routing. To use this, you should pass <code>method</code> as an option. You can pass in as many methods as you'd like using this, for example:</p>
 <pre><code class="language-php">Route::template('home', [
     'method' =&gt; ['GET', 'POST', 'OPTIONS'],
@@ -128,7 +128,7 @@ Route::archive(function () {
         return 'Hello from the home template!';
     }
 ]);</code></pre>
-<h2 id="native-routing">Native Routing</h2>
+<h3 id="native-routing">Native Routing</h3>
 <p>Although discouraged in normal use, Laravel's native routing methods are still available for use without having to have a page for the route in Wordpress. This shouldn't normally be used but is very helpful when dealing with something such as an AJAX call or form submission where creating a page in Wordpress for this would be painful and useless.</p>
         </article>
     </div>
