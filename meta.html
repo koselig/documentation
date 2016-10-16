@@ -72,12 +72,12 @@
                                         Authentication guard
                                     </a>
                                 </li>
-                                                            <li class="active">
+                                                            <li class="">
                                     <a href="https://koselig.co/filters.html">
                                         Filters
                                     </a>
                                 </li>
-                                                            <li class="">
+                                                            <li class="active">
                                     <a href="https://koselig.co/meta.html">
                                         Meta
                                     </a>
@@ -89,26 +89,34 @@
 
         <article>
             <div class="pull-xs-right hidden-sm-down edit-gh">
-                <a href="https://github.com/koselig/documentation/blob/master/filters.md" class="btn btn-secondary btn-sm">
+                <a href="https://github.com/koselig/documentation/blob/master/meta.md" class="btn btn-secondary btn-sm">
                     Edit this page on GitHub
                 </a>
             </div>
 
-            <h1 id="filters">Filters</h1>
-<p>Koselig provides a simple way to interface with Wordpress' filters. Filters should be declared in a service provider in your application.</p>
-<h3 id="hooking-an-existing-filter-action">Hooking an existing filter action</h3>
-<p>To hook an existing filter action, simply call the <code>hook</code> method with the usual parameters you'd usually pass to <code>add_filter</code></p>
-<pre><code class="language-php">use Koselig\Support\Action;
+            <h1 id="meta">Meta</h1>
+<p>Koselig provides various different ways to grab meta values. Everything is cached on first fetch to ensure speed throughout the request. This replaces <code>get_post_meta</code> and <code>get_field</code> and so deprecates them.</p>
+<h3 id="using-the-meta-model">Using the Meta model</h3>
+<p>To get simple meta values from the current page, you can use the <code>get</code> method on the <code>Meta</code> model.</p>
+<pre><code class="language-php">Meta::get('_wp_page_template');</code></pre>
+<p><code>Meta</code> is flexible in that you can also provide a page to get the meta value from, this can either be a Post model or an id of a post. Pass nothing as the key if you'd like to get all meta values or pass an array if you'd like to get more than one value.</p>
+<pre><code class="language-php">Meta::get(Post::where('title', 'Test')-&gt;first(), '_wp_page_template');
 
-Action::hook('gform_pre_submission', function ($e) {
-    dd($e);
+Meta::get(['_wp_page_template', '_wp_attached_file']);</code></pre>
+<h4 id="advanced-custom-fields">Advanced Custom Fields</h4>
+<p>Koselig also supports <a href="https://www.advancedcustomfields.com/">Advanced Custom Fields</a> values. To get these, use the <code>acf</code> method on the <code>Meta</code> model.</p>
+<pre><code class="language-php">Meta::acf('test');</code></pre>
+<p>Like <code>get</code>, you can pass a Post model, id of a post or nothing as the first parameter if you'd like to get values from another post other than the current one.</p>
+<h3 id="using-a-post-model">Using a Post model</h3>
+<p>If you have an instance of <code>Post</code> you'd like to get meta values from, there are methods in that model you can use to do that. You can use <code>getMeta</code> to get simple meta values. Like the above, you can pass a string, an array or nothing to the method to get one, some or all values respectively.</p>
+<pre><code class="language-php">Route::template('home', function (Post $post) {
+    echo $post-&gt;getMeta('_wp_page_template');
+})</code></pre>
+<p><code>Post</code> models, like the <code>Meta</code> model, also supports Advaned Custom Fields values. You can get these using <code>getACF</code> with the same parameters as <code>getMeta</code>.</p>
+<div class="alert alert-info" role="alert"><strong>Heads up!</strong> It is worth noting that <code>getACF</code> will strip non-ACF fields from the returned value.</div>
+<pre><code class="language-php">Route::template('home', function (Post $post) {
+    echo $post-&gt;getACF('test');
 });</code></pre>
-<h3 id="triggering-a-hook">Triggering a hook</h3>
-<p>To trigger a hook, simply call the <code>trigger</code> method with the usual parameters you'd usually pass to <code>do_action</code></p>
-<pre><code class="language-php">Action::trigger('my_action', 1, 2, 3);</code></pre>
-<h3 id="filtering-a-variable">Filtering a variable</h3>
-<p>To filter a variable, simply call the <code>filter</code> method with the usual parameters you'd usually pass to <code>apply_filters</code></p>
-<pre><code class="language-php">$a = Action::filter('my_filter', $a, 1, 2, 3);</code></pre>
         </article>
     </div>
         </main>
