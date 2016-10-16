@@ -29,3 +29,6 @@ menu:
                 filters:
                     text: Filters
                     url: filters.html
+                meta:
+                    text: Meta
+                    url: meta.html
