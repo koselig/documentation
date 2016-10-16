@@ -103,7 +103,6 @@
 <pre><code class="language-php">Meta::get(Post::where('title', 'Test')-&gt;first(), '_wp_page_template');
 
 Meta::get(['_wp_page_template', '_wp_attached_file']);</code></pre>
-<h4 id="advanced-custom-fields">Advanced Custom Fields</h4>
 <p>Koselig also supports <a href="https://www.advancedcustomfields.com/">Advanced Custom Fields</a> values. To get these, use the <code>acf</code> method on the <code>Meta</code> model.</p>
 <pre><code class="language-php">Meta::acf('test');</code></pre>
 <p>Like <code>get</code>, you can pass a Post model, id of a post or nothing as the first parameter if you'd like to get values from another post other than the current one.</p>
