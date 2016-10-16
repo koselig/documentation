@@ -23,8 +23,6 @@ Meta::get(Post::where('title', 'Test')->first(), '_wp_page_template');
 Meta::get(['_wp_page_template', '_wp_attached_file']);
 ```
 
-#### Advanced Custom Fields
-
 Koselig also supports [Advanced Custom Fields](https://www.advancedcustomfields.com/) values. To get these, use the `acf` method on the `Meta` model.
 
 ```php
