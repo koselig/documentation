@@ -99,12 +99,15 @@
 <p>First things first, it is recommended that you get yourself familiar with <a href="https://laravel.com/docs/5.3/installation">Laravel</a>. Koselig is built on top of Laravel to provide a Wordpress administration panel on the backend, Laravel knowledge is assumed throughout the documentation.</p>
 <h2 id="installing-koselig">Installing Koselig</h2>
 <p>The recommended (and only supported) way of installing Koselig is by cloning the main repository:</p>
-<pre><code class="language-bash">git clone https://github.com/koselig/koselig</code></pre>
+<pre><code class="language-bash">$ git clone https://github.com/koselig/koselig</code></pre>
 <p>This will pull down a skeleton install of Koselig, you will then need to configure your environment variables. First copy <code>.env.example</code> to <code>.env</code> and fill out your database details, then fill in your <a href="https://www.advancedcustomfields.com/">Advanced Custom Fields</a> Pro key, if you don't have an ACF key, you will have to remove the <code>advanced-custom-fields/advanced-custom-fields-pro</code> dependency from your <code>composer.json</code> file.</p>
-<p>Generate your application keys <a href="https://api.wordpress.org/secret-key/1.1/salt/">here</a> and paste them in your environment file. Then generate an application key using <code>php artisan key:generate</code>.</p>
 <p>Now you're ready to install your dependencies! Use composer to do this:</p>
-<pre><code class="language-bash">composer install</code></pre>
-<p>Now visit your site, you will automatically be prompted to install the Wordpress database.</p>
+<pre><code class="language-bash">$ composer install</code></pre>
+<p>Generate your application keys <a href="https://roots.io/salts.html">here</a> and paste them in your environment file, alternatively you can use <a href="https://github.com/aaemnnosttv/wp-cli-dotenv-command">wp-cli-dotenv-command</a> to automatically do this for you:</p>
+<pre><code class="language-bash">$ wp package install aaemnnosttv/wp-cli-dotenv-command
+$ wp dotenv salts regenerate</code></pre>
+<p>Then generate an application key using <code>php artisan key:generate</code>.</p>
+<p>Now, when visit your site, you will automatically be prompted to install the Wordpress database.</p>
 <p>Congratulations, you're ready to use Koselig now!</p>
 <div class="alert alert-info" role="alert"><strong>Heads up!</strong> Koselig rids Wordpress of frontend responsibilites altogether, this means theme support in Wordpress is dropped completely. Don't worry though, any functions you can run in vanilla Wordpress you can run in Koselig!</div>
         </article>
