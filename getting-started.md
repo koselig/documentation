@@ -16,20 +16,27 @@ First things first, it is recommended that you get yourself familiar with [Larav
 The recommended (and only supported) way of installing Koselig is by cloning the main repository:
 
 ```bash
-git clone https://github.com/koselig/koselig
+$ git clone https://github.com/koselig/koselig
 ```
 
 This will pull down a skeleton install of Koselig, you will then need to configure your environment variables. First copy `.env.example` to `.env` and fill out your database details, then fill in your [Advanced Custom Fields](https://www.advancedcustomfields.com/) Pro key, if you don't have an ACF key, you will have to remove the `advanced-custom-fields/advanced-custom-fields-pro` dependency from your `composer.json` file.
 
-Generate your application keys [here](https://api.wordpress.org/secret-key/1.1/salt/) and paste them in your environment file. Then generate an application key using `php artisan key:generate`.
-
 Now you're ready to install your dependencies! Use composer to do this:
 
 ```bash
-composer install
+$ composer install
 ```
 
-Now visit your site, you will automatically be prompted to install the Wordpress database.
+Generate your application keys [here](https://roots.io/salts.html) and paste them in your environment file, alternatively you can use [wp-cli-dotenv-command](https://github.com/aaemnnosttv/wp-cli-dotenv-command) to automatically do this for you:
+
+```bash
+$ wp package install aaemnnosttv/wp-cli-dotenv-command
+$ wp dotenv salts regenerate
+```
+
+ Then generate an application key using `php artisan key:generate`.
+
+Now, when visit your site, you will automatically be prompted to install the Wordpress database.
 
 Congratulations, you're ready to use Koselig now!
 
