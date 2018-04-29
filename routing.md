@@ -81,3 +81,7 @@ Although discouraged in normal use, Laravel's native routing methods are still a
 ## Adding pages to Wordpress Admin
 
 Adding pages to the Wordpress dashboard using Koselig is incredibly easy. You can use `Page::addPage($pageTitle, $menuTitle, $capability, $slug, $action, $iconUrl = '', $position = null)` and `Page::addSubpage($parent, $pageTitle, $menuTitle, $capabilities, $slug, $action)` to do this, these methods match the syntax of [add_menu_page](https://developer.wordpress.org/reference/functions/add_menu_page/) and [add_submenu_page](https://developer.wordpress.org/reference/functions/add_submenu_page/), respectively. The main difference between using `Page` and using Wordpress' native methods is that `Page` wraps your `action` so you can pass it the same types you can pass to your routes (closures and `controller@method` syntax) and dependencies will automatically be injected.
+
+## Custom Post Types
+
+Custom Post Types can be defined in `config/posttypes.php`. One called "Supplier" should be setup for you already, this should give you an example of how the configuration works. The parameters are the same as Wordpress' [register_post_type](https://codex.wordpress.org/Function_Reference/register_post_type#Arguments).
