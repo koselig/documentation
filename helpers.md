@@ -23,7 +23,7 @@ As mentioned above, you can just inject `Post` into your controller to get the c
 
 ### Checking Page Type
 
-Checking the type of page you're on is a fairly common thing in Wordpress although in Koselig it's generally regarded as an antipattern. Conditional page type checks are usually performed all the way down in the Router and once you get past that it's generally not a very good idea to concern yourself with it. The functionality is still available as in some contexts it may be useful.
+Checking the type of page you're on is a fairly common thing in Wordpress although in Koselig it's generally regarded as an antipattern. Conditional page type checks are usually performed all the way down in the Router and once you get past that it's generally not a very good idea to concern yourself with page type. The functionality is still available as in some contexts it may be useful.
 
 ```php
 // check if we're on a post page for the given post type(s)
@@ -55,7 +55,7 @@ Wordpress::site();
 
 The current user should be retrieved using the standard [Auth Guard](auth-guard.html) (`auth()->user()`) however, if preferred, you can retrieve the current WP_User using the `Wordpress` helper class.
 
-<div class="alert alert-danger"><strong>Heads up:</strong> this method returns a WP_User. Where possible you should prefer to use the `User` eloquent model that Koselig provides. You can do that easily using the auth guard given above.</div>
+<div class="alert alert-danger"><strong>Heads up!</strong> This method returns a WP_User. Where possible you should prefer to use the User Eloquent model that Koselig provides. You can get that easily using the auth helper from Laravel above.</div>
 
 ```php
 Wordpress::currentUser();
