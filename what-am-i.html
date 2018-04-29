@@ -52,7 +52,7 @@
                         <span class="section-title">Introduction</span>
 
                         <ul>
-                                                            <li class="">
+                                                            <li class="active">
                                     <a href="https://koselig.github.io/documentation/what-am-i.html">
                                         What is Koselig?
                                     </a>
@@ -115,20 +115,36 @@
 
         <article>
             <div class="pull-xs-right hidden-sm-down edit-gh">
-                <a href="https://github.com/koselig/documentation/blob/master/views.md" class="btn btn-secondary btn-sm">
+                <a href="https://github.com/koselig/documentation/blob/master/what-am-i.md" class="btn btn-secondary btn-sm">
                     Edit this page on GitHub
                 </a>
             </div>
 
-            <h1 id="views">Views</h1>
-<p>Koselig provides a few Blade directives for helping you interact with Wordpress within your views.</p>
-<h3 id="the-loop">The Loop</h3>
-<p><a href="https://codex.wordpress.org/The_Loop">The Loop</a> is a Wordpress term for the loop processing all the posts that match the current page. For example, on search pages you'd use The Loop for displaying search results &amp; on the home page you'd use The Loop for displaying the most recent posts. This allows you to reuse your result partials nearly everywhere quite easily.</p>
-<p>Koselig provides <code>@loop</code> and <code>@endloop</code> directives to leverage The Loop in your views. The current post you're processing is available inside the <code>$post</code> variable or you can use the <code>post()</code> helper.</p>
-<h3 id="meta-and-scripts">Meta and Scripts</h3>
-<p>Koselig provides <code>@wphead</code> and <code>@wpfooter</code> directives to call <a href="https://codex.wordpress.org/Plugin_API/Action_Reference/wp_head">wp_head</a> and <a href="https://codex.wordpress.org/Plugin_API/Action_Reference/wp_footer">wp_footer</a> helpers in your views.</p>
-<h3 id="gravity-forms">Gravity Forms</h3>
-<p>If you happen to use Gravity Forms then you're in luck. Koselig provides an <code>@gravityform()</code> directive for calling <code>gravity_form()</code> from your views.</p>
+            <h1 id="what-is-koselig">What is Koselig?</h1>
+<p>Koselig is the result of my year of working at an agency (<a href="http://www.motionlab.com/">Motionlab</a> - they're pretty cool guys, may as well give them a backlink) working on Wordpress sites and day-in day-out thinking &quot;it's got to get better than this.&quot; And now it has! Koselig is going to make you love your life as a Wordpress developer by allowing you to write pure <a href="https://laravel.com/">Laravel</a> code but keep that all-too-familiar Wordpress dashboard your customers seem to love and you love to hate.</p>
+<p>Unlike frameworks such as <a href="https://framework.themosis.com/">Themosis</a> which are essentially Wordpress theme frameworks with Blade &amp; a few Illuminate components, Koselig completely revolutionises the Wordpress developer experience by running Wordpress <em>on</em> Laravel. Wordpress' cogs are still turning in the background but with its head cut off, it has a &quot;no-op&quot; theme that renders nothing. Koselig will then get the page that Wordpress thought it was loading and match it to a Route that you define and invokes your controller. From that point on the Laravel application is free to call any Wordpress method you can when developing a native Wordpress theme.</p>
+<p>Since we have the pleasure of working in a Laravel environment, we can start swapping out those imfamously slow Wordpress components with beautiful Laravel ones (so far this has only been Mail &amp; Database though) and providing nice interfaces to interact with Wordpress.</p>
+<div class="alert alert-info">Advanced Custom Fields <a href="https://www.advancedcustomfields.com/resources/flexible-content/">Flexible Content</a> is the key to writing amazing Koselig applications, take note of their ugly code examples, get this:</div>
+<pre><code class="language-php">Route::template('promo', function (Post $page) {
+    return view('promo', [
+        'page' =&gt; $page,
+        'content' =&gt; $page-&gt;getAcf('content')
+    ]);
+});</code></pre>
+<pre><code class="language-php">&lt;h1&gt;{{ $page-&gt;title }}&lt;/h1&gt;
+&lt;time datetime="{{ $page-&gt;post_date-&gt;format('c') }}"&gt;{{ $page-&gt;post_date-&gt;diffForHumans() }}&lt;/time&gt;
+
+By &lt;a href="{{ $page-&gt;author-&gt;link() }}" rel="author"&gt;{{ $page-&gt;author-&gt;display_name }}&lt;/a&gt;
+
+@forelse($content as $block)
+    @if($block['acf_layout'] === 'paragraph')
+        &lt;p&gt;{{ $block['text'] }}&lt;/p&gt;
+    @elseif($block['acf_layout'] === 'download')
+        &lt;a href="{{ $block['file'] }}"&gt;{{ $block['content'] }}&lt;/a&gt;
+    @endif
+@empty
+    &lt;h1&gt;No blocks!&lt;/h1&gt;
+@endforelse</code></pre>
         </article>
     </div>
         </main>
