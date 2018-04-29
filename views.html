@@ -67,7 +67,7 @@
                                         Routing
                                     </a>
                                 </li>
-                                                            <li class="active">
+                                                            <li class="">
                                     <a href="https://koselig.github.io/documentation/auth-guard.html">
                                         Authentication guard
                                     </a>
@@ -109,13 +109,20 @@
 
         <article>
             <div class="pull-xs-right hidden-sm-down edit-gh">
-                <a href="https://github.com/koselig/documentation/blob/master/auth-guard.md" class="btn btn-secondary btn-sm">
+                <a href="https://github.com/koselig/documentation/blob/master/views.md" class="btn btn-secondary btn-sm">
                     Edit this page on GitHub
                 </a>
             </div>
 
-            <h1 id="authentication-guard">Authentication Guard</h1>
-<p>Koselig provides an authentication guard for Laravel that integrates with Wordpress, this provides a simple yet elegant interface to deal with the current user and allows you to use all of the <a href="https://laravel.com/docs/5.3/authentication">authentication methods provided by Laravel</a> and allows you to use authentication middleware provided by Laravel such as <code>auth</code> and <code>guest</code>.</p>
+            <h1 id="views">Views</h1>
+<p>Koselig provides a few Blade directives for helping you interact with Wordpress within your views.</p>
+<h3 id="the-loop">The Loop</h3>
+<p><a href="https://codex.wordpress.org/The_Loop">The Loop</a> is a Wordpress term for the loop processing all the posts that match the current page. For example, on search pages you'd use The Loop for displaying search results &amp; on the home page you'd use The Loop for displaying the most recent posts. This allows you to reuse your result partials nearly everywhere quite easily.</p>
+<p>Koselig provides <code>@loop</code> and <code>@endloop</code> directives to leverage The Loop in your views. The current post you're processing is available inside the <code>$post</code> variable or you can use the <code>post()</code> helper.</p>
+<h3 id="meta-and-scripts">Meta and Scripts</h3>
+<p>Koselig provides <code>@wphead</code> and <code>@wpfooter</code> directives to call <a href="https://codex.wordpress.org/Plugin_API/Action_Reference/wp_head">wp_head</a> and <a href="https://codex.wordpress.org/Plugin_API/Action_Reference/wp_footer">wp_footer</a> helpers in your views.</p>
+<h3 id="gravity-forms">Gravity Forms</h3>
+<p>If you happen to use Gravity Forms then you're in luck. Koselig provides an <code>@gravityform()</code> directive for calling <code>gravity_form()</code> from your views.</p>
         </article>
     </div>
         </main>

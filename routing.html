@@ -82,6 +82,26 @@
                                         Meta
                                     </a>
                                 </li>
+                                                            <li class="">
+                                    <a href="https://koselig.github.io/documentation/hashing.html">
+                                        Hashing
+                                    </a>
+                                </li>
+                                                            <li class="">
+                                    <a href="https://koselig.github.io/documentation/helpers.html">
+                                        Helpers
+                                    </a>
+                                </li>
+                                                            <li class="">
+                                    <a href="https://koselig.github.io/documentation/interoperability.html">
+                                        WP Interoperability
+                                    </a>
+                                </li>
+                                                            <li class="">
+                                    <a href="https://koselig.github.io/documentation/views.html">
+                                        View Helpers
+                                    </a>
+                                </li>
                                                     </ul>
                     </li>
                             </ul>
@@ -135,6 +155,8 @@ Route::archive(function () {
 ]);</code></pre>
 <h3 id="native-routing">Native Routing</h3>
 <p>Although discouraged in normal use, Laravel's native routing methods are still available for use without having to have a page for the route in Wordpress. This shouldn't normally be used but is very helpful when dealing with something such as an AJAX call or form submission where creating a page in Wordpress for this would be painful and useless.</p>
+<h2 id="adding-pages-to-wordpress-admin">Adding pages to Wordpress Admin</h2>
+<p>Adding pages to the Wordpress dashboard using Koselig is incredibly easy. You can use <code>Page::addPage($pageTitle, $menuTitle, $capability, $slug, $action, $iconUrl = '', $position = null)</code> and <code>Page::addSubpage($parent, $pageTitle, $menuTitle, $capabilities, $slug, $action)</code> to do this, these methods match the syntax of <a href="https://developer.wordpress.org/reference/functions/add_menu_page/">add_menu_page</a> and <a href="https://developer.wordpress.org/reference/functions/add_submenu_page/">add_submenu_page</a>, respectively. The main difference between using <code>Page</code> and using Wordpress' native methods is that <code>Page</code> wraps your <code>action</code> so you can pass it the same types you can pass to your routes (closures and <code>controller@method</code> syntax) and dependencies will automatically be injected.</p>
         </article>
     </div>
         </main>
