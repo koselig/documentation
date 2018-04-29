@@ -32,3 +32,15 @@ menu:
                 meta:
                     text: Meta
                     url: meta.html
+                hashing:
+                    text: Hashing
+                    url: hashing.html
+                helpers:
+                    text: Helpers
+                    url: helpers.html
+                Interoperability:
+                    text: WP Interoperability
+                    url: interoperability.html
+                Views:
+                    text: View Helpers
+                    url: views.html

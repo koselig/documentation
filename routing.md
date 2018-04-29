@@ -77,3 +77,7 @@ Route::template('home', [
 ### Native Routing
 
 Although discouraged in normal use, Laravel's native routing methods are still available for use without having to have a page for the route in Wordpress. This shouldn't normally be used but is very helpful when dealing with something such as an AJAX call or form submission where creating a page in Wordpress for this would be painful and useless.
+
+## Adding pages to Wordpress Admin
+
+Adding pages to the Wordpress dashboard using Koselig is incredibly easy. You can use `Page::addPage($pageTitle, $menuTitle, $capability, $slug, $action, $iconUrl = '', $position = null)` and `Page::addSubpage($parent, $pageTitle, $menuTitle, $capabilities, $slug, $action)` to do this, these methods match the syntax of [add_menu_page](https://developer.wordpress.org/reference/functions/add_menu_page/) and [add_submenu_page](https://developer.wordpress.org/reference/functions/add_submenu_page/), respectively. The main difference between using `Page` and using Wordpress' native methods is that `Page` wraps your `action` so you can pass it the same types you can pass to your routes (closures and `controller@method` syntax) and dependencies will automatically be injected.
