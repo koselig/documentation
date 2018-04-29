@@ -4,7 +4,7 @@
 
 {% block content %}
     <video id="player1" autoplay muted loop>
-        <source type="video/mp4" src="/doggo.mp4">
+        <source type="video/mp4" src="{{ baseUrl }}/doggo.mp4">
     </video>
 
     <div class="home">
@@ -15,7 +15,7 @@
                         <h1 class="cover-heading">Koselig</h1>
                         <p class="lead">Laravel with a hint of Wordpress and a side of beautiful syntax.</p>
                         <p class="lead">
-                            <a href="/getting-started.html" class="btn btn-lg btn-outline-primary">Documentation</a>
+                            <a href="{{ baseUrl }}/getting-started.html" class="btn btn-lg btn-outline-primary">Documentation</a>
                             <a href="https://github.com/koselig/koselig" class="btn btn-lg btn-outline-primary" target="_blank">
                                 GitHub
                             </a>
