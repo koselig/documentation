@@ -1,6 +1,6 @@
 ---
 layout: documentation
-current_menu: what-am-i
+current_menu: whoami
 ---
 
 # What is Koselig?
@@ -38,3 +38,5 @@ By <a href="{{ $page->author->link() }}" rel="author">{{ $page->author->display_
     <h1>No blocks!</h1>
 @endforelse
 ```
+
+You can use all your regular Wordpress plugins and all your regular Laravel plugins ([Debugbar](https://github.com/barryvdh/laravel-debugbar) is *amazing* and shows your Wordpress queries/auth status/etc too) with minimal problems. Please don't be scared to dive into the library code and fix what you need to fix to get it working, the codebase is pretty small and easy to wrap your head around!

@@ -16,7 +16,7 @@ menu:
             items:
                 what-am-i:
                     text: What is Koselig?
-                    url: what-am-i.html
+                    url: whoami.html
                 getting-started:
                     text: Getting started
                     url: getting-started.html
