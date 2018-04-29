@@ -9,7 +9,7 @@ Koselig is the result of my year of working at an agency ([Motionlab](http://www
 
 Unlike frameworks such as [Themosis](https://framework.themosis.com/) which are essentially Wordpress theme frameworks with Blade & a few Illuminate components, Koselig completely revolutionises the Wordpress developer experience by running Wordpress *on* Laravel. Wordpress' cogs are still turning in the background but with its head cut off, it has a "no-op" theme that renders nothing. Koselig will then get the page that Wordpress thought it was loading and match it to a Route that you define and invokes your controller. From that point on the Laravel application is free to call any Wordpress method you can when developing a native Wordpress theme.
 
-Since we have the pleasure of working in a Laravel environment, we can start swapping out those imfamously slow Wordpress components with beautiful Laravel ones (so far this has only been Mail & Database though) and providing nice interfaces to interact with Wordpress.
+Since we have the pleasure of working in a Laravel environment, we can start swapping out those imfamously slow Wordpress components with beautiful Laravel ones (so far this has only been mail, database & caching though) and providing nice interfaces to interact with Wordpress.
 
 <div class="alert alert-info">Advanced Custom Fields' <a href="https://www.advancedcustomfields.com/resources/flexible-content/">Flexible Content</a> is the key to writing amazing Koselig applications. Take note of their ugly code examples, get this:</div>
 
