@@ -8473,18 +8473,22 @@ a.text-dark:hover, a.text-dark:focus {
   }
 }
 
-header {
+nav.navbar {
   background-color: #f8f8f8;
   border: 1px solid #e7e7e7;
   min-height: 50px;
   margin-bottom: 20px;
 }
 
-header .navbar-brand {
+nav.navbar .navbar-brand {
   font-size: 1rem;
 }
 
-header a {
+nav.navbar ul {
+  align-items: center;
+}
+
+nav.navbar a {
   color: #777777;
   text-transform: uppercase;
   font-size: .7rem;
@@ -8492,11 +8496,7 @@ header a {
   padding: 0 20px;
 }
 
-header a.github {
-  padding-bottom: 10px;
-}
-
-header a.github i {
+nav.navbar a.github i {
   font-size: 20px;
 }
 
