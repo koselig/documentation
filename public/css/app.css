@@ -160,14 +160,14 @@ sup {
 }
 
 a {
-  color: #bf941c;
+  color: #007bff;
   text-decoration: none;
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
 }
 
 a:hover {
-  color: #9d5a08;
+  color: #0056b3;
   text-decoration: underline;
 }
 
@@ -2720,12 +2720,12 @@ fieldset:disabled a.btn {
 
 .btn-link {
   font-weight: 400;
-  color: #bf941c;
+  color: #007bff;
   background-color: transparent;
 }
 
 .btn-link:hover {
-  color: #9d5a08;
+  color: #0056b3;
   text-decoration: underline;
   background-color: transparent;
   border-color: transparent;
@@ -4370,14 +4370,14 @@ input[type="button"].btn-block {
   padding: 0.5rem 0.75rem;
   margin-left: -1px;
   line-height: 1.25;
-  color: #bf941c;
+  color: #007bff;
   background-color: #fff;
   border: 1px solid #dee2e6;
 }
 
 .page-link:hover {
   z-index: 2;
-  color: #9d5a08;
+  color: #0056b3;
   text-decoration: none;
   background-color: #e9ecef;
   border-color: #dee2e6;
@@ -5786,23 +5786,23 @@ button.bg-dark:focus {
 }
 
 .border {
-  border: 1px solid #f0f2f1 !important;
+  border: 1px solid #dee2e6 !important;
 }
 
 .border-top {
-  border-top: 1px solid #f0f2f1 !important;
+  border-top: 1px solid #dee2e6 !important;
 }
 
 .border-right {
-  border-right: 1px solid #f0f2f1 !important;
+  border-right: 1px solid #dee2e6 !important;
 }
 
 .border-bottom {
-  border-bottom: 1px solid #f0f2f1 !important;
+  border-bottom: 1px solid #dee2e6 !important;
 }
 
 .border-left {
-  border-left: 1px solid #f0f2f1 !important;
+  border-left: 1px solid #dee2e6 !important;
 }
 
 .border-0 {
@@ -8803,7 +8803,7 @@ pre[class*="language-"], pre[class*="language-"] code[class*="language-"] {
   text-align: center;
   margin-top: 0;
   margin-bottom: 40px;
-  color: #d5a51f;
+  color: #007bff;
 }
 
 .homepage .home section h2 a:hover, .homepage .home section h2 a:active {
@@ -8826,7 +8826,7 @@ pre[class*="language-"], pre[class*="language-"] code[class*="language-"] {
 }
 
 .homepage .home section .jumbotron h1 strong {
-  color: #d5a51f;
+  color: #007bff;
 }
 
 .homepage .home section .jumbotron p {
