@@ -31,6 +31,9 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="https://koselig.github.io/documentation/what-am-i.html">What is Koselig?</a>
+                        </li>
+
+                        <li class="nav-item">
                             <a class="nav-link" href="https://koselig.github.io/documentation/getting-started.html">Getting started</a>
                         </li>
 
@@ -129,7 +132,7 @@
 <h3 id="get-the-current-page">Get the Current Page</h3>
 <p>As mentioned above, you can just inject <code>Post</code> into your controller to get the current page, however if this doesn't work for you then you can use <code>$request-&gt;post()</code> which will return the same instance.</p>
 <h3 id="checking-page-type">Checking Page Type</h3>
-<p>Checking the type of page you're on is a fairly common thing in Wordpress although in Koselig it's generally regarded as an antipattern. Conditional page type checks are usually performed all the way down in the Router and once you get past that it's generally not a very good idea to concern yourself with it. The functionality is still available as in some contexts it may be useful.</p>
+<p>Checking the type of page you're on is a fairly common thing in Wordpress although in Koselig it's generally regarded as an antipattern. Conditional page type checks are usually performed all the way down in the Router and once you get past that it's generally not a very good idea to concern yourself with page type. The functionality is still available as in some contexts it may be useful.</p>
 <pre><code class="language-php">// check if we're on a post page for the given post type(s)
 Wordpress::singular($types?: string|string[]);
 
@@ -150,7 +153,7 @@ Wordpress::getSiteId();
 Wordpress::site();</code></pre>
 <h3 id="current-user">Current User</h3>
 <p>The current user should be retrieved using the standard <a href="auth-guard.html">Auth Guard</a> (<code>auth()-&gt;user()</code>) however, if preferred, you can retrieve the current WP_User using the <code>Wordpress</code> helper class.</p>
-<div class="alert alert-danger"><strong>Heads up:</strong> this method returns a WP_User. Where possible you should prefer to use the `User` eloquent model that Koselig provides. You can do that easily using the auth guard given above.</div>
+<div class="alert alert-danger"><strong>Heads up!</strong> This method returns a WP_User. Where possible you should prefer to use the User Eloquent model that Koselig provides. You can get that easily using the auth helper from Laravel above.</div>
 <pre><code class="language-php">Wordpress::currentUser();</code></pre>
 <h2 id="facades">Facades</h2>
 <p>Koselig provides some facades for frequently-required parts of Wordpress. The <code>Loop</code> facade will point to the current <code>Post</code> in <a href="https://codex.wordpress.org/The_Loop">The Loop</a>. The <code>Query</code> facade points to the Main Query (which is the query that identified the current page). The major difference betewen using the <code>Query</code> facade and  <code>$GLOBALS['wp_the_query']</code> is that the <code>Query</code> facade uses the <code>Query</code> proxy (which is covered below)</p>
