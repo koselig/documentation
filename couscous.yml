@@ -2,6 +2,9 @@ baseUrl: https://koselig.github.io/documentation/
 
 title: Koselig
 
+template:
+    directory: website
+
 exclude:
     - website
 
