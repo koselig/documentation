@@ -137,7 +137,7 @@
 <p>When a user visits a page with the template with the slug <code>home</code> they will see a string on their screen saying &quot;Hello from the home template!&quot;</p>
 <h3 id="singular-routing">Singular Routing</h3>
 <p>This route is used when a singular post is being displayed. You may pass an array of post types or a single post type as a string to this method. You can optionally have the current post's model injected into the parameters. Any subclass of <code>Post</code> also works.</p>
-<div class="alert alert-info" role="alert"><strong>Heads up!</strong> You can declare your own templates in <code>config/posttypes.php</code>, the slug (key) set in this file will be the one used in the routing method.</div>
+<div class="alert alert-info" role="alert"><strong>Heads up!</strong> You can declare your own post types in <code>config/posttypes.php</code>, the slug (key) set in this file will be the one used in the routing method.</div>
 <pre><code class="language-php">Route::singular('post', function (Post $post) {
     dd($post);
 });</code></pre>
