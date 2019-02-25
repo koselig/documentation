@@ -5,7 +5,7 @@ current_menu: filters
 
 # Filters
 
-Koselig provides a simple way to interface with Wordpress' filters. Filters should be declared in a service provider in your application.
+Koselig provides a simple way to interface with WordPress' filters. Filters should be declared in a service provider in your application.
 
 ### Hooking an existing filter action
 

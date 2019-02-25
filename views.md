@@ -5,11 +5,11 @@ current_menu: views
 
 # Views
 
-Koselig provides a few Blade directives for helping you interact with Wordpress within your views.
+Koselig provides a few Blade directives for helping you interact with WordPress within your views.
 
 ### The Loop
 
-[The Loop](https://codex.wordpress.org/The_Loop) is a Wordpress term for the loop processing all the posts that match the current page. For example, on search pages you'd use The Loop for displaying search results & on the home page you'd use The Loop for displaying the most recent posts. This allows you to reuse your result partials nearly everywhere quite easily.
+[The Loop](https://codex.wordpress.org/The_Loop) is a WordPress term for the loop processing all the posts that match the current page. For example, on search pages you'd use The Loop for displaying search results & on the home page you'd use The Loop for displaying the most recent posts. This allows you to reuse your result partials nearly everywhere quite easily.
 
 Koselig provides `@loop` and `@endloop` directives to leverage The Loop in your views. The current post you're processing is available inside the `$post` variable or you can use the `post()` helper.
 

@@ -7,7 +7,7 @@ current_menu: getting-started
 
 Welcome! This guide will help you get started with a working install of Koselig.
 
-First things first, it is recommended that you get yourself familiar with [Laravel](https://laravel.com/docs/5.3/installation). Koselig is built on top of Laravel to provide a Wordpress administration panel on the backend, Laravel knowledge is assumed throughout the documentation.
+First things first, it is recommended that you get yourself familiar with [Laravel](https://laravel.com/docs/5.3/installation). Koselig is built on top of Laravel to provide a WordPress administration panel on the backend, Laravel knowledge is assumed throughout the documentation.
 
 
 
@@ -36,8 +36,8 @@ $ wp dotenv salts regenerate
 
  Then generate an application key using `php artisan key:generate`.
 
-Now, when visit your site, you will automatically be prompted to install the Wordpress database.
+Now, when visit your site, you will automatically be prompted to install the WordPress database.
 
 Congratulations, you're ready to use Koselig now!
 
-<div class="alert alert-info" role="alert"><strong>Heads up!</strong> Koselig rids Wordpress of frontend responsibilites altogether, this means theme support in Wordpress is dropped completely. Don't worry though, any functions you can run in vanilla Wordpress you can run in Koselig!</div>
+<div class="alert alert-info" role="alert"><strong>Heads up!</strong> Koselig rids WordPress of frontend responsibilites altogether, this means theme support in WordPress is dropped completely. Don't worry though, any functions you can run in vanilla WordPress you can run in Koselig!</div>
