@@ -126,41 +126,41 @@
             </div>
 
             <h1 id="helpers">Helpers</h1>
-<p>Wordpress' API is, quite frankly, ugly. Koselig has a nice OO interface for interacting with Wordpress and it's recommended you use those over Wordpress' helper functions.</p>
+<p>WordPress' API is, quite frankly, ugly. Koselig has a nice OO interface for interacting with WordPress and it's recommended you use those over WordPress' helper functions.</p>
 <h3 id="get-the-current-page-id">Get the Current Page ID</h3>
-<p>There are numerous ways to get the current page ID using Koselig. When in a controller, you're probably better off injecting <code>Post</code> into your method and calling <code>-&gt;ID</code> on that for readability sake. The global way to do it is to use the Wordpress helper class.</p>
-<pre><code class="language-php">Koselig\Support\Wordpress::id();</code></pre>
+<p>There are numerous ways to get the current page ID using Koselig. When in a controller, you're probably better off injecting <code>Post</code> into your method and calling <code>-&gt;ID</code> on that for readability sake. The global way to do it is to use the WordPress helper class.</p>
+<pre><code class="language-php">Koselig\Support\WordPress::id();</code></pre>
 <p>Under the hood, <code>id()</code> uses the <code>Query</code> facade to get the current post.</p>
 <h3 id="get-the-current-page">Get the Current Page</h3>
 <p>As mentioned above, you can just inject <code>Post</code> into your controller to get the current page, however if this doesn't work for you then you can use <code>$request-&gt;post()</code> which will return the same instance.</p>
 <h3 id="checking-page-type">Checking Page Type</h3>
-<p>Checking the type of page you're on is a fairly common thing in Wordpress although in Koselig it's generally regarded as an antipattern. Conditional page type checks are usually performed all the way down in the Router and once you get past that it's generally not a very good idea to concern yourself with page type. The functionality is still available as in some contexts it may be useful.</p>
+<p>Checking the type of page you're on is a fairly common thing in WordPress although in Koselig it's generally regarded as an antipattern. Conditional page type checks are usually performed all the way down in the Router and once you get past that it's generally not a very good idea to concern yourself with page type. The functionality is still available as in some contexts it may be useful.</p>
 <pre><code class="language-php">// check if we're on a post page for the given post type(s)
-Wordpress::singular($types?: string|string[]);
+WordPress::singular($types?: string|string[]);
 
 // check if we're on an archive page for the given post type(s)
-Wordpress::archive($types?: string|string[]);
+WordPress::archive($types?: string|string[]);
 
 // check if we're on an author page for the given user(s) by model or id
-Wordpress::author($users?: int|int[]|User|User[]);</code></pre>
+WordPress::author($users?: int|int[]|User|User[]);</code></pre>
 <h3 id="multisite">Multisite</h3>
-<p>These methods only work on multisite Wordpress installs and will return null on anywhere else.</p>
+<p>These methods only work on multisite WordPress installs and will return null on anywhere else.</p>
 <pre><code class="language-php">// check if we're on a multisite and optionally check if we're on the given multisite
-Wordpress::multisite($id?: int|int[]);
+WordPress::multisite($id?: int|int[]);
 
 // get the current multisite site id
-Wordpress::getSiteId();
+WordPress::getSiteId();
 
 // return the WP_Network associated with this site
-Wordpress::site();</code></pre>
+WordPress::site();</code></pre>
 <h3 id="current-user">Current User</h3>
-<p>The current user should be retrieved using the standard <a href="auth-guard.html">Auth Guard</a> (<code>auth()-&gt;user()</code>) however, if preferred, you can retrieve the current WP_User using the <code>Wordpress</code> helper class.</p>
+<p>The current user should be retrieved using the standard <a href="auth-guard.html">Auth Guard</a> (<code>auth()-&gt;user()</code>) however, if preferred, you can retrieve the current WP_User using the <code>WordPress</code> helper class.</p>
 <div class="alert alert-danger"><strong>Heads up!</strong> This method returns a WP_User. Where possible you should prefer to use the User Eloquent model that Koselig provides. You can get that easily using the auth helper from Laravel above.</div>
-<pre><code class="language-php">Wordpress::currentUser();</code></pre>
+<pre><code class="language-php">WordPress::currentUser();</code></pre>
 <h2 id="facades">Facades</h2>
-<p>Koselig provides some facades for frequently-required parts of Wordpress. The <code>Loop</code> facade will point to the current <code>Post</code> in <a href="https://codex.wordpress.org/The_Loop">The Loop</a>. The <code>Query</code> facade points to the Main Query (which is the query that identified the current page). The major difference betewen using the <code>Query</code> facade and  <code>$GLOBALS['wp_the_query']</code> is that the <code>Query</code> facade uses the <code>Query</code> proxy (which is covered below)</p>
+<p>Koselig provides some facades for frequently-required parts of WordPress. The <code>Loop</code> facade will point to the current <code>Post</code> in <a href="https://codex.wordpress.org/The_Loop">The Loop</a>. The <code>Query</code> facade points to the Main Query (which is the query that identified the current page). The major difference betewen using the <code>Query</code> facade and  <code>$GLOBALS['wp_the_query']</code> is that the <code>Query</code> facade uses the <code>Query</code> proxy (which is covered below)</p>
 <h2 id="proxies">Proxies</h2>
-<p>Koselig provides some proxies to Wordpress where it didn't make sense to rewrite the class, this makes Wordpress interfaceable in a PSR-friendly way.</p>
+<p>Koselig provides some proxies to WordPress where it didn't make sense to rewrite the class, this makes WordPress interfaceable in a PSR-friendly way.</p>
 <h3 id="query">Query</h3>
 <p>Koselig camel-cases every method in <code>WP_Query</code> using the <code>Query</code> proxy. It also changes some strangely named methods into more digestable (and guessable) ones (ie. <code>have_comments</code> -&gt; <code>hasComments</code>). You can see all the methods on the <code>Query</code> proxy <a href="https://github.com/koselig/library/blob/master/src/Proxy/Query.php#L12">here</a>.</p>
         </article>

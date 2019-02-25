@@ -125,14 +125,14 @@
                 </a>
             </div>
 
-            <h1 id="wordpress-interopability-with-laravel">Wordpress Interopability with Laravel</h1>
-<p>Koselig silently replaces a few Wordpress components with Laravel ones for consistency across datastores,  DRY configuration across Laravel &amp; Wordpress and in a lot of cases, speed. These are mostly transparent to the end developer but it's nice to have them documented.</p>
+            <h1 id="wordpress-interopability-with-laravel">WordPress Interopability with Laravel</h1>
+<p>Koselig silently replaces a few WordPress components with Laravel ones for consistency across datastores,  DRY configuration across Laravel &amp; WordPress and in a lot of cases, speed. These are mostly transparent to the end developer but it's nice to have them documented.</p>
 <h3 id="database">Database</h3>
-<p>Koselig replaces Wordpress' <code>wpdb</code> implementation with <a href="https://laravel.com/docs/master/database">Laravel's</a> database implementation. Wordpress has implemented their own homebaked prepared statements implentation, this is an inherent security risk so along with providing a little bit of a speed boost by providing us the ability to cache repetitive queries we know aren't going to change often (ie. database version) we also get the added benefit of Laravel's proven safety track record.</p>
+<p>Koselig replaces WordPress' <code>wpdb</code> implementation with <a href="https://laravel.com/docs/master/database">Laravel's</a> database implementation. WordPress has implemented their own homebaked prepared statements implentation, this is an inherent security risk so along with providing a little bit of a speed boost by providing us the ability to cache repetitive queries we know aren't going to change often (ie. database version) we also get the added benefit of Laravel's proven safety track record.</p>
 <h3 id="mailer">Mailer</h3>
-<p>Wordpress' <code>wp_mail</code> function is replaced with an implementation that invokes Laravel's <a href="https://laravel.com/docs/master/mail">Mail driver</a>. This gives you a native way to leverage Mailgun, SparkPost, Amazon SES, sendmail, etc without any other plugins, just configure your .env and Koselig will handle the rest!</p>
+<p>WordPress' <code>wp_mail</code> function is replaced with an implementation that invokes Laravel's <a href="https://laravel.com/docs/master/mail">Mail driver</a>. This gives you a native way to leverage Mailgun, SparkPost, Amazon SES, sendmail, etc without any other plugins, just configure your .env and Koselig will handle the rest!</p>
 <h3 id="translations">Translations</h3>
-<p>Translations are a slightly strange one. Both Laravel and Wordpress expose a <code>__</code> helper and libraries of both use the method, removing Laravel's or Wordpress' implementation wouldn't be viable. When calling <code>__</code>, Koselig will first check if Laravel has the given translation and if it doesn't then it will fallback to Wordpress' implementation.</p>
+<p>Translations are a slightly strange one. Both Laravel and WordPress expose a <code>__</code> helper and libraries of both use the method, removing Laravel's or WordPress' implementation wouldn't be viable. When calling <code>__</code>, Koselig will first check if Laravel has the given translation and if it doesn't then it will fallback to WordPress' implementation.</p>
         </article>
     </div>
         </main>
